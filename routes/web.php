@@ -21,9 +21,9 @@ $router->get('/', function () use ($router) {
 //Chat
 $router->group(["namespace"=>"chat","prefix" => "chats"],function () use ($router){
     $router->post('/send-a-message', 'chatController@sendMessage');
-    $router->get('/', 'chatController@getUserChats');
-    $router->get('/{id}/messages', 'chatController@getChatMessages');
-    $router->put('/{id}/markAsRead', 'chatController@markAsRead');
-    $router->delete('messages/{id}/delete', 'chatController@deleteAMessage');
-    $router->get('get_chat_id/{id}', 'chatController@getChatID');
+    $router->get('/get-user-chats', 'chatController@getUserChats');
+    $router->get('/get-messages/{chatId}/', 'chatController@getChatMessages');
+    $router->put('/mark-chat-as-read/{chatId}', 'chatController@markAsRead');
+    $router->delete('/delete-messages/{messageId}/', 'chatController@deleteAMessage');
+    $router->get('/get_chat_id-/{userId}', 'chatController@getChatID');
 });
