@@ -1,2 +1,2 @@
-#Here is a chat system microservice design with Lumen
-It has a Rest and GraphQL implementation so anyone that suit your architecture you can plugin and start using.
+# chat system microservice in GraphlQl and Rest
+A peer-2-peer plateform where you can tell someone going to Super market/Mall to get some grocery or other item for you
