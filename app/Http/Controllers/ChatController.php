@@ -102,7 +102,7 @@ class ChatController extends Controller
     {
         $chat = Chat::find($id);
         $chat->markAsReadForUser(auth()->id());
-        event(new FetchUserMessageCount());
+        //event(new FetchUserMessageCount()); after they read a message we want to push how many unread they have
         return response()->json(['message' => 'successful'], 200);
     }
 
@@ -133,7 +133,7 @@ class ChatController extends Controller
     private function createParticipants($chatId, array $data)
     {
         $chat = Chat::findOrFail($chatId);
-        $chat->participants()->sync($data);
+        $chat->members()->sync($data);
     }
     private function fetchUserChats()
     {
@@ -145,5 +145,3 @@ class ChatController extends Controller
     }
 }
 
-
-////How do I fetch chat other by the most recent updated
